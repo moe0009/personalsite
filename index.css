@@ -1,0 +1,79 @@
+/* Reset and basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+html, body {
+    background-color: #121212; /* Dark mode */
+    color: #ffffff;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Main container */
+#container {
+    max-width: 800px;
+    text-align: center;
+}
+
+/* Main section */
+main h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+main p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #a3a3a3;
+}
+
+/* Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Cards */
+.card {
+    background: #1c1c1c;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #333; /* Subtle gray outline */
+}
+
+.card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #d3d3d3;
+}
+
+/* Footer */
+footer {
+    margin-top: 30px;
+}
+
+footer a {
+    color: #d3d3d3;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    text-transform: lowercase; /* Ensures lowercase text */
+}
+
+footer a:hover {
+    color: #ffffff;
+}
