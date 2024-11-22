@@ -9,35 +9,146 @@
 <body>
     <div id="container">
         <main>
-            <h1>Welcome</h1>
-            <p>My name is Mohammad</p>
+            <h1>welcome</h1>
+            <p>My name is Mohammad, but you can call me Moe.</p>
 
             <!-- Grid Section -->
             <div class="grid">
                 <div class="card">
-                    <h2>Soccer ⚽</h2>
-                    <p>I love playing soccer in my free time. It helps me stay active and connected with friends.</p>
+                    <h2>soccer ⚽</h2>
+                    <p>i play soccer a lot, it keeps me connected to my friends and clears my head.</p>
                 </div>
                 <div class="card">
-                    <h2>Learning 📚</h2>
-                    <p>I enjoy picking up new skills and diving into topics like AI, blockchain, and design.</p>
+                    <h2>learning 📚</h2>
+                    <p>i spend time picking up new skills and exploring fields like ai, design, and blockchain.</p>
                 </div>
                 <div class="card">
-                    <h2>Cooking 🍳</h2>
-                    <p>Experimenting in the kitchen is a passion. I like creating dishes from various cuisines.</p>
+                    <h2>cooking 🍳</h2>
+                    <p>trying recipes from different cuisines is my jam. it’s fun to experiment in the kitchen.</p>
                 </div>
                 <div class="card">
-                    <h2>Technology 💻</h2>
-                    <p>Building, breaking, and fixing things has always been fun. Tech is both my passion and career.</p>
+                    <h2>technology 💻</h2>
+                    <p>building and breaking tech is my passion, whether it’s for work or fun.</p>
                 </div>
             </div>
         </main>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2>projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>tron-fundyou</h3>
+                    <p>winner of tron builder tour 2024. a decentralized platform connecting creators and investors securely using the tron blockchain.</p>
+                    <a href="https://github.com/olti2803/tron-builder-tour-2024" target="_blank">view on github</a>
+                </div>
+                <div class="project-card">
+                    <h3>academix</h3>
+                    <p>winner of hackcuny 2024. a unified platform for esl students, integrating coursework, ai assistance, and scheduling tools.</p>
+                    <a href="https://github.com/hackcuny2024/AcademiX" target="_blank">view on github</a>
+                </div>
+                <div class="project-card">
+                    <h3>phpsocial</h3>
+                    <p>a simple social networking web app built with php and mysql. includes authentication, posts, and comments.</p>
+                    <a href="https://github.com/moe0009/PHPSocial" target="_blank">view on github</a>
+                </div>
+                <div class="project-card">
+                    <h3>customshell</h3>
+                    <p>a lightweight custom unix shell written in c. includes commands like `tree`, `list`, and `path`.</p>
+                    <a href="https://github.com/moe0009/CustomShell" target="_blank">view on github</a>
+                </div>
+                <div class="project-card">
+                    <h3>cryptopredict</h3>
+                    <p>ml project predicting cryptocurrency price trends using xgboost and smote for balancing data.</p>
+                    <a href="https://github.com/moe0009/CryptoPricePredictor" target="_blank">view on github</a>
+                </div>
+                <div class="project-card">
+                    <h3>mindful moments</h3>
+                    <p>a mental health tracker with mood logging, journaling, and guided meditation. tech stack: react, spring boot, postgresql.</p>
+                    <a href="https://github.com/Dothat65/mindfulMoments" target="_blank">view on github</a>
+                </div>
+            </div>
+        </section>
 
         <!-- Footer -->
         <footer>
             <a href="https://github.com/moe0009" target="_blank">github</a>
             <a href="https://linkedin.com/in/mohammadbazrouk" target="_blank">linkedin</a>
+            <a href="#" id="blogs-link">blogs</a>
         </footer>
     </div>
+
+    <!-- Blog Modal -->
+    <div id="blog-overlay"></div>
+    <div id="blog-modal">
+        <button class="back" onclick="backToBlogs()" style="display: none;">←</button>
+        <button class="close" onclick="closeBlog()">✕</button>
+        <div id="blog-list">
+            <h3>blogs</h3>
+            <ul>
+                <li><a href="#" onclick="showBlog(0)">first blog</a></li>
+                <li><a href="#" onclick="showBlog(1)">second blog</a></li>
+            </ul>
+        </div>
+        <div id="blog-content" style="display: none;">
+            <h3 id="blog-title"></h3>
+            <p id="blog-description"></p>
+        </div>
+    </div>
+
+    <script>
+        const blogData = [
+            {
+                title: "first blog",
+                description: "i decided to make this personal site for fun. if you're here, hello. this is just a start, but i hope to share more updates soon."
+            },
+            {
+                title: "second blog",
+                description: "this is an example blog. more content will be added here in the future. stay tuned!"
+            }
+        ];
+
+        const blogModal = document.getElementById('blog-modal');
+        const blogOverlay = document.getElementById('blog-overlay');
+        const blogList = document.getElementById('blog-list');
+        const blogContent = document.getElementById('blog-content');
+        const blogTitle = document.getElementById('blog-title');
+        const blogDescription = document.getElementById('blog-description');
+        const backButton = document.querySelector('.back');
+
+        document.getElementById('blogs-link').addEventListener('click', (e) => {
+            e.preventDefault();
+            openBlogList();
+        });
+
+        function openBlogList() {
+            blogList.style.display = 'block';
+            blogContent.style.display = 'none';
+            backButton.style.display = 'none';
+            blogModal.style.display = 'block';
+            blogOverlay.style.display = 'block';
+        }
+
+        function showBlog(index) {
+            blogTitle.textContent = blogData[index].title;
+            blogDescription.textContent = blogData[index].description;
+            blogList.style.display = 'none';
+            blogContent.style.display = 'block';
+            backButton.style.display = 'block';
+        }
+
+        function backToBlogs() {
+            blogList.style.display = 'block';
+            blogContent.style.display = 'none';
+            backButton.style.display = 'none';
+        }
+
+        function closeBlog() {
+            blogModal.style.display = 'none';
+            blogOverlay.style.display = 'none';
+        }
+
+        blogOverlay.addEventListener('click', closeBlog); // Close modal when overlay is clicked
+    </script>
 </body>
 </html>
